@@ -1,15 +1,18 @@
 
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import { productsRouter } from './products/products-routes.js';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-const port = 20000;
+
+const port = 15000;
 
 const main = async () => {
-    await mongoose.connect('mongodb+srv://ravitmg:admin@cluster0.zfcpv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+    await mongoose.connect('mongodb+srv://prerana:admin@ecommerce.ghxgk.mongodb.net/?retryWrites=true&w=majority&appName=ecommerce');
     console.log('connected to database successfully')
 }
 
