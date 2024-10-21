@@ -8,6 +8,13 @@ const ProductsSchema = new mongoose.Schema({
     stock: {
         type: Number,
         default: 0,
+    },
+    imageURL: {
+        type: String,      
+    },
+    price:{
+        type:Number,
+        required: true
     }
 });
 
