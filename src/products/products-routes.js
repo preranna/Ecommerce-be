@@ -46,6 +46,12 @@ productsRouter.post('/', upload.single('image'), async (req, res) => {
 
 productsRouter.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    const deletedProduct = await Products.findOneAndDelete(id);
-    res.send(deletedProduct)
+    const Product = await Products.findOne({_id: id});
+    await Product.deleteOne({_id : id});
+    if(fs.existsSync(Product.imageURL)) {
+      console.log("product image exist.")
+      fs.unlinkSync(Product.imageURL)
+    }
+    
+    res.send(Product)
 });
