@@ -4,6 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { productsRouter } from './products/products-routes.js';
+import { OrderRouter } from './order/order-routes.js';
 
 dotenv.config();
 const app = express();
@@ -21,6 +22,7 @@ const main = async () => {
 main().catch(err => console.log(err));
 
 app.use('/products', productsRouter);
+app.use('/order',OrderRouter)
 
 app.listen(port, () => {
     console.log(`Ecommerce app running at port: ${ port }`);
