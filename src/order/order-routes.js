@@ -19,7 +19,7 @@ export const OrderRouter = express.Router();
         stock:product.stock -1
 
     });
-res.send("out of stock")
+res.send("Puchase successfully.")
  });
 
 
