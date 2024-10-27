@@ -18,7 +18,7 @@ const port = 15000;
 
 const main = async () => {
     await mongoose.connect(process.env.MONGODB_URI);
-    console.log('connected to database successfully')
+    console.log('Connected to Database Successfully.')
 }
 
 main().catch(err => console.log(err));

@@ -4,6 +4,7 @@ import Products from './products-model.js';
 import multer from 'multer';
 import fs from 'fs';
 const directory = 'uploads/products'
+import jwt from 'jsonwebtoken'
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -28,6 +29,9 @@ export const productsRouter = express.Router();
 
 
 productsRouter.get('/', async (req, res) => {
+  console.log(req.headers);
+  const token = req.headers.authorization.replace('Bearer','');
+  //jwt.verify{token,'topsecret'};
     const products = await Products.find();
     res.send(products);
 });
