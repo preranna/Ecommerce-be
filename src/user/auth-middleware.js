@@ -9,7 +9,7 @@ export const authMiddleware = (req, res, next) => {
 
     const token = authorization.replace('Bearer ', '');
     try {
-        const userInfo = jwt.verify(token, 'topsecret');
+        const userInfo = jwt.verify(token, process.env.JWT_SECRET);
         req.user = userInfo;
     } catch (e) {
         res.status(401).send({ message: 'invalid token' })
