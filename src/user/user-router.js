@@ -1,6 +1,7 @@
 import express from 'express';
 import User from './user-model.js';
 import bcrypt from 'bcrypt';
+import { authMiddleware } from './auth-middleware.js';
 
 export const userRouter = express.Router()
 

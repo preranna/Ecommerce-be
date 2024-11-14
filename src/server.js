@@ -1,10 +1,9 @@
-
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { productsRouter } from './products/products-routes.js';
-import { OrderRouter } from './order/order-routes.js';
+import { orderRouter} from './order/order-routes.js';
 import { userRouter } from './user/user-router.js';
 import { authRouter } from './user/auth-router.js';
 
@@ -24,8 +23,8 @@ const main = async () => {
 main().catch(err => console.log(err));
 
 app.use('/products', productsRouter);
-app.use('/order',OrderRouter)
-app.use('/User',userRouter)
+app.use('/order',orderRouter)
+app.use('/user',userRouter)
 app.use('/auth',authRouter)
 
 app.listen(port, () => {
